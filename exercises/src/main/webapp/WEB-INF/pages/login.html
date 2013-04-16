@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>登录</title>
+		<script type="text/javascript">
+			function login(){
+				var username=document.getElementById("username");
+				if(!username.value){
+					alert("用户名不能为空");
+					username.focus();
+					return false;
+				}
+				var password=document.getElementById("password");
+				if(!password.value){
+					alert("密码不能为空");
+					password.focus();
+					return false;
+				}
+				document["dologin"].submit();
+			}
+		</script>
+	</head>
+	<body>
+		<form id="dologin" name="dologin" action="dologin.lianxi" style="margin:0px;padding:0px" method="post">
+			<table cellpadding="0" cellspacing="0" style="font-size:12px;line-height:30px;">
+				<tr>
+					<td colspan="2" align="center"><h2>登录</h2></td>
+				</tr>
+				<tr>
+					<td>用户名：</td>
+					<td><input type="text" id="username" name="username" value="${username?if_exists}"/></td>
+				</tr>
+				<tr>
+					<td>密 码：</td>
+					<td><input type="password" id="password" name="password"/></td>
+				</tr>
+				<tr>
+					<td>${msg?if_exists}</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" value="登 录" onclick="login();"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
